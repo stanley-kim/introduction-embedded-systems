@@ -67,7 +67,7 @@ unsigned char find_median(unsigned char array[], unsigned int length) {
   if (length % 2 == 0) 
       return (array_copy[length / 2 - 1] + array_copy[length / 2]) / 2;
   else
-    return array_copy[(length - 1)/2];
+    return array_copy[(length - 1) / 2];
 }
 
 unsigned char find_min(unsigned char array[], unsigned int length) {
