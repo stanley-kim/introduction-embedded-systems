@@ -41,10 +41,10 @@ ifeq ($(PLATFORM), MSP432)
   SPECS = nosys.specs
 
 # Compiler Flags and Defines
-  CC = ./arm-none-eabi-gcc
-  LD = ./arm-none-eabi-ld
-  OBJDUMP = ./arm-none-eabi-objdump
-  SIZE = ./arm-none-eabi-size
+  CC = arm-none-eabi-gcc
+  LD = arm-none-eabi-ld
+  OBJDUMP = arm-none-eabi-objdump
+  SIZE = arm-none-eabi-size
   LDFLAGS = -Wl,-Map=$(MAP_FILE) -T $(LINKER_FILE) 
   CFLAGS = -mcpu=$(CPU) -march=$(ARCH) --specs=$(SPECS) -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -Wall -Werror -O0 -g -std=c99
   CPPFLAGs = -M -MF
