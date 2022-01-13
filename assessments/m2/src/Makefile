@@ -20,10 +20,10 @@
 #      %.o --> generates o file, which is the corresponding object file
 #      compile-all --> compiles all the src files without linking and generates o files, the object files
 #      build --> Compile all object files and link into a final executable into one executable file (c1m2.out). it also shows the output code size. 
-#      clean --> removes all the generated files whether .i, .o, .d, .map, .s, .out
+#      clean --> removes all the generated files ( .i, .o, .d, .map, .s, .out )
 #
 # Platform Overrides:
-#      <Put a description of the supported Overrides here
+#      MSP432 and HOST
 #
 #------------------------------------------------------------------------------
 include sources.mk
