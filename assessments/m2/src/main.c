@@ -20,8 +20,8 @@
  * @date April 1 2017
  *
  */
-#include "platform.h"
-#include "memory.h"
+#include "../include/common/platform.h"
+#include "../include/common/memory.h"
 
 #define MAX_LENGTH (10)
 char buffer[MAX_LENGTH];
@@ -30,7 +30,7 @@ char buffer[MAX_LENGTH];
 int main(void) {
   unsigned int i;
   char value;
-
+ 
   /* Code below does some arbitrary memory Reads & writes */
   clear_all(buffer, MAX_LENGTH);
   set_all( ( buffer + 8 ), 43, 2); 
