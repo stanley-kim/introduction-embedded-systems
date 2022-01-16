@@ -29,13 +29,13 @@
 include sources.mk
 
 # Map File Name
-  MAP_FILE = c1m2.map
+  MAP_FILE = c1m4.map
 # Executable File Name
-  EXEC_FILE = c1m2.out
+  EXEC_FILE = c1m4.out
 
 ifeq ($(PLATFORM), MSP432)
 # Architectures Specific Flags
-  LINKER_FILE = ../msp432p401r.lds 
+  LINKER_FILE = ./msp432p401r.lds 
   CPU = cortex-m4
   ARCH = armv7e-m
   SPECS = nosys.specs
@@ -66,29 +66,12 @@ else
   CPPFLAGs =  -M -MF 
 endif
 
-%.i : %.c
-	$(CC) -D$(PLATFORM) -E -o $@ $<
 
-%.d : %.c
-	$(CC) $(CPPFLAGs) $@ $<
-
-%.asm : %.c
-	$(CC) -D$(PLATFORM) $(CFLAGS) -c $<
-	$(OBJDUMP) $(patsubst %.c, %.o, $<)  -S  > $@
-
-%.o : %.c
-	$(CC) -D$(PLATFORM) $(CFLAGS) -c $<
-
-.PHONY: compile-all
-compile-all: $(SOURCES) 
-	$(CC) -D$(PLATFORM) $(CFLAGS) -c $(SOURCES)  
-
-
-PHONY: build
+.PHONY: build
 build: $(SOURCES)
-	$(CC) -D$(PLATFORM) $(CFLAGS) $(LDFLAGS) -o $(EXEC_FILE) $^ 
-	$(SIZE) $(EXEC_FILE) 
+	$(CC) -DCOURSE1 -D$(PLATFORM)  $(CFLAGS) $(LDFLAGS) $(INCLUDE_PATH) -o $(EXEC_FILE) $^ 
 
 .PHONY: clean
 clean:
 	rm -f *.i *.d *.map *.s *.out *.o  *.asm
+

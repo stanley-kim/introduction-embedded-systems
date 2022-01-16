@@ -11,17 +11,24 @@
 
 ifeq ($(PLATFORM),MSP432)
 # Add your Source files to this variable
-  SOURCES = *.c
+  SOURCES = $(wildcard ./src/*.c)
 
 # Add your include paths to this variable
-  INCLUDES = $(wildcard ../include/CMSIS/*.h) \
-            $(wildcard ../include/common/*.h) \
-            $(wildcard ../include/msp432/*.h)
+  INCLUDES = $(wildcard ./include/common/*.h)  \
+              $(wildcard ./include/msp432/*.h) \
+              $(wildcard ./include/CMSIS/*.h)
+  INCLUDE_PATH = -I./include/common \
+                  -I./include/CMSIS \
+                  -I./include/msp432
 else
-  SOURCES = main.c \
-            memory.c 
+  SOURCES = ./src/main.c \
+            ./src/memory.c \
+            ./src/stats.c   \
+            ./src/data.c \
+            ./src/course1.c
 
-  INCLUDES = $(wildcard ../include/common/*.h) 
+  INCLUDES = $(wildcard ./include/common/*.h) 
+  INCLUDE_PATH = -I./include/common
 endif
 
 

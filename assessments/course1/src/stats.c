@@ -22,10 +22,12 @@
 
 #include <stdio.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
 
+#ifndef COURSE1
 void main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
@@ -38,24 +40,27 @@ void main() {
   /* Statistics and Printing Functions Go Here */
   print_statistics(test, SIZE);
 }
+#endif
 
 void print_statistics(unsigned char array[], unsigned int length) {
-  printf("The original Array\n");
+  PRINTF("The original Array\n");
   print_array(array, length);
-  printf("The Median is: %d\n", find_median(array, length));
-  printf("The Mean is: %d\n", find_mean(array, length));
-  printf("The Max is: %d\n", find_max(array, length));
-  printf("The Min is: %d\n", find_min(array, length));
+  PRINTF("The Median is: %d\n", find_median(array, length));
+  PRINTF("The Mean is: %d\n", find_mean(array, length));
+  PRINTF("The Max is: %d\n", find_max(array, length));
+  PRINTF("The Min is: %d\n", find_min(array, length));
   sort_array(array, length);
-  printf("The sorted array:\n");
+  PRINTF("The sorted array:\n");
   print_array(array, length);
 }
 
 void print_array(unsigned char array[], unsigned int length) {
+#ifdef VERBOSE
   for(int i=0; i<length; i++) {
-    printf("%d ", array[i]);
+    PRINTF("%d ", array[i]);
   }
-  printf("\n");
+  PRINTF("\n");
+#endif
 }
 
 unsigned char find_median(unsigned char array[], unsigned int length) {
