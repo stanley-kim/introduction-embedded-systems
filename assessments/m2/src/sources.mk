@@ -9,9 +9,19 @@
 #
 #*****************************************************************************
 
+ifeq ($(PLATFORM),MSP432)
 # Add your Source files to this variable
-SOURCES =
+  SOURCES = *.c
 
 # Add your include paths to this variable
-INCLUDES = 
+  INCLUDES = $(wildcard ../include/CMSIS/*.h) \
+            $(wildcard ../include/common/*.h) \
+            $(wildcard ../include/msp432/*.h)
+else
+  SOURCES = main.c \
+            memory.c 
+
+  INCLUDES = $(wildcard ../include/common/*.h) 
+endif
+
 
