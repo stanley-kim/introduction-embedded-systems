@@ -69,7 +69,7 @@ endif
 
 .PHONY: build
 build: $(SOURCES)
-	$(CC) -DCOURSE1 -D$(PLATFORM)  $(CFLAGS) $(LDFLAGS) $(INCLUDE_PATH) -o $(EXEC_FILE) $^ 
+	$(CC) -DCOURSE1 -DVERBOSE -D$(PLATFORM)  $(CFLAGS) $(LDFLAGS) $(INCLUDE_PATH) -o $(EXEC_FILE) $^ 
 
 .PHONY: clean
 clean:
