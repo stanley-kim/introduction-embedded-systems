@@ -20,9 +20,6 @@
  * @date April 1 2017
  *
  */
-//#include "../include/common/platform.h"
-//#include "../include/common/memory.h"
-//#include "../include/common/course1.h"
 #include "platform.h"
 #include "memory.h"
 #include "course1.h"
