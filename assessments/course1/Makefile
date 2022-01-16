@@ -77,6 +77,5 @@ clean:
 
 .PHONY: help
 help:
-#	rm -f *.i *.d *.map *.s *.out *.o  *.asm
 	@echo "make build PLATFORM=HOST <-- build c1m4.out (X86 Executable)" 
 	@echo "make build PLATFORM=MSP432 <-- build c1m4.out (MSP432 Executable)" 
